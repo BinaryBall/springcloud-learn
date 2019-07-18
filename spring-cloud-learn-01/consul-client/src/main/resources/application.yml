@@ -1,0 +1,22 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: consul-client
+  cloud:
+    consul:
+      # consul服务器ip
+      host: localhost
+      # consul端口
+      port: 8500
+      discovery:
+        # 健康检查地址
+        health-check-path: ${management.endpoints.web.base-path}/health
+        # 健康检查时间
+        health-check-interval: 10s
+        # 实例名称
+        instance-id: consul-client
+management:
+  endpoints:
+    web:
+      base-path: /actuator
