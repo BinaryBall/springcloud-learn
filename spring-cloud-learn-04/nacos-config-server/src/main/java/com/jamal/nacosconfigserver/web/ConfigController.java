@@ -16,15 +16,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope
 public class ConfigController {
 
-    @Value("${prod.value:1}")
-    String mastValue;
+    @Value("${active.profile:''}")
+    String activeProfile;
 
-    @Value("${extValue:''}")
+    @Value("${ext.profile:''}")
     String extValue;
 
-    @GetMapping("/prod-config")
-    public String test(){
-        return mastValue;
+    @GetMapping("/active-profile")
+    public String activeProfile(){
+        return activeProfile;
     }
 
     @GetMapping("/ext-config")
